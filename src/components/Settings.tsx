@@ -10,9 +10,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from './ui/dialog'
-import { Input } from './ui/input'
-import { Label } from './ui/label'
 import { Separator } from './ui/separator'
+import { InputSettings } from './InputSettings'
 
 export function Settings() {
   return (
@@ -30,56 +29,16 @@ export function Settings() {
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
-          <div className="md:grid md:grid-cols-3 items-center gap-4">
-            <Label htmlFor="earnPerDay" className="md:text-right">
-              Valor por dia
-            </Label>
-            <Input
-              type="number"
-              id="earnPerDay"
-              value="10"
-              className="col-span-2"
-            />
-          </div>
+          <InputSettings name="earnPerDay" label="Valor por dia" value={10} />
           <Separator />
 
           <DialogDescription>Descontos</DialogDescription>
-          <div className="md:grid md:grid-cols-3 items-center gap-4">
-            <Label htmlFor="discount_iva" className="md:text-right">
-              IVA %
-            </Label>
-            <Input
-              type="number"
-              id="discount_iva"
-              value="25"
-              className="col-span-2"
-            />
-          </div>
-          <div className="md:grid md:grid-cols-3 items-center gap-4">
-            <Label htmlFor="discount_irs" className="md:text-right">
-              IRS %
-            </Label>
-            <Input
-              type="number"
-              id="discount_irs"
-              value="25"
-              className="col-span-2"
-            />
-          </div>
+          <InputSettings name="iva" label="IVA %" value={25} />
+          <InputSettings name="irs" label="IRS %" value={25} />
           <Separator />
 
           <DialogDescription>Reembolso</DialogDescription>
-          <div className="md:grid md:grid-cols-3 items-center gap-4">
-            <Label htmlFor="discount_iva" className="md:text-right">
-              IVA %
-            </Label>
-            <Input
-              type="number"
-              id="discount_iva"
-              value="25"
-              className="col-span-2"
-            />
-          </div>
+          <InputSettings name="iva" label="IVA %" value={25} />
         </div>
         <DialogFooter>
           <Button type="submit">Salvar</Button>
