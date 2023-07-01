@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { Calendar } from './components/ui/calendar'
 import { Card } from './components/ui/card'
+import { Settings } from './components/Settings'
 
 function App() {
   const [selectedDate, setSelectedDate] = useState<Date[]>()
@@ -12,8 +13,9 @@ function App() {
 
   return (
     <>
-      <div className="max-w-3xl m-auto pt-4 px-4">
+      <div className="max-w-3xl m-auto pt-4 px-4 flex justify-between items-center">
         <h3 className="font-bold text-sm">Time Control 2</h3>
+        <Settings />
       </div>
       <div
         className="
