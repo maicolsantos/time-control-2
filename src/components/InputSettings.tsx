@@ -2,6 +2,15 @@ import { ChangeEvent, useState } from 'react'
 
 import { Input } from './ui/input'
 import { Label } from './ui/label'
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from './ui/select'
 
 type InputSettingsProps = {
   name: string
@@ -27,9 +36,21 @@ export function InputSettings({ name, label, value }: InputSettingsProps) {
         type="number"
         id={name}
         value={inputValue}
-        className="col-span-2"
+        className="col-span-1 mb-2 md:mb-0"
         onChange={handleOnchange}
       />
+      <Select>
+        <SelectTrigger>
+          <SelectValue placeholder="Tipo" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>Tipo</SelectLabel>
+            <SelectItem value="percentage">%</SelectItem>
+            <SelectItem value="currency">€</SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </Select>
     </div>
   )
 }
