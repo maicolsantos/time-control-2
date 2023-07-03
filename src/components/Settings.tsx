@@ -1,4 +1,4 @@
-import { Cog } from 'lucide-react'
+import { Cog, Plus } from 'lucide-react'
 
 import { Button } from './ui/button'
 import {
@@ -32,12 +32,22 @@ export function Settings() {
           <InputSettings name="earnPerDay" label="Valor por dia" value={10} />
           <Separator />
 
-          <DialogDescription>Descontos</DialogDescription>
+          <div className="flex justify-between items-center">
+            <DialogDescription>Descontos</DialogDescription>
+            <Button variant="outline" size="icon" className="w-7 h-7">
+              <Plus className="h-4 w-4" />
+            </Button>
+          </div>
           <InputSettings name="iva" label="IVA %" value={25} />
           <InputSettings name="irs" label="IRS %" value={25} />
           <Separator />
 
-          <DialogDescription>Reembolso</DialogDescription>
+          <div className="flex justify-between items-center">
+            <DialogDescription>Reembolso</DialogDescription>
+            <Button variant="outline" size="icon" className="w-7 h-7">
+              <Plus className="h-4 w-4" />
+            </Button>
+          </div>
           <InputSettings name="iva" label="IVA %" value={25} />
         </div>
         <DialogFooter>
