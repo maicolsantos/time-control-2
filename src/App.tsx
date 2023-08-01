@@ -3,9 +3,11 @@ import { useState } from 'react'
 import { Calendar } from './components/ui/calendar'
 import { Card } from './components/ui/card'
 import { Settings } from './components/Settings'
+import { useSettingsStore } from './stores/useSettingsStore'
 
 function App() {
   const [selectedDate, setSelectedDate] = useState<Date[]>()
+  const { discounts, refunds } = useSettingsStore()
 
   const handleDayClick = (event: any) => {
     console.log(event)
@@ -51,55 +53,56 @@ function App() {
                   <small className="font-bold leading-1">4200€</small>
                 </div>
               </div>
+              {discounts.length > 0 && (
+                <>
+                  <h3 className=" mt-4 mb-2 font-bold text-sm">Descontos</h3>
+                  {discounts.map((discount) => (
+                    <div
+                      key={discount.id}
+                      className="w-full py-2 border-b border-stone-200"
+                    >
+                      <div className="flex justify-between w-full items-start text-xs">
+                        <strong className="leading-none">
+                          {discount.label}{' '}
+                          <small className="text-[9px] font-bold text-gray-400">
+                            ({discount.value}
+                            {discount.type})
+                          </small>
+                        </strong>
+                        <span className="font-bold leading-none">1000€</span>
+                      </div>
+                      <div className="flex justify-between w-full items-start text-xs text-gray-400">
+                        <small className="leading-1">Previsão</small>
+                        <small className="font-bold leading-1">4200€</small>
+                      </div>
+                    </div>
+                  ))}
+                </>
+              )}
 
-              <h3 className=" mt-4 mb-2 font-bold text-sm">Descontos</h3>
-              <div className="w-full py-2 border-b border-stone-200">
-                <div className="flex justify-between w-full items-start text-xs">
-                  <strong className="leading-none">
-                    IVA{' '}
-                    <small className="text-[9px] font-bold text-gray-400">
-                      (25%)
-                    </small>
-                  </strong>
-                  <span className="font-bold leading-none">1000€</span>
-                </div>
-                <div className="flex justify-between w-full items-start text-xs text-gray-400">
-                  <small className="leading-1">Previsão</small>
-                  <small className="font-bold leading-1">4200€</small>
-                </div>
-              </div>
-              <div className="w-full pt-2">
-                <div className="flex justify-between w-full items-start text-xs">
-                  <strong className="leading-none">
-                    IRS{' '}
-                    <small className="text-[9px] font-bold text-gray-400">
-                      (25%)
-                    </small>
-                  </strong>
-                  <span className="font-bold leading-none">1000€</span>
-                </div>
-                <div className="flex justify-between w-full items-start text-xs text-gray-400">
-                  <small className="leading-1">Previsão</small>
-                  <small className="font-bold leading-1">4200€</small>
-                </div>
-              </div>
-
-              <h3 className="mt-4 mb-2 font-bold text-sm">Reembolso</h3>
-              <div className="w-full pt-2">
-                <div className="flex justify-between w-full items-start text-xs">
-                  <strong className="leading-none">
-                    IVA{' '}
-                    <small className="text-[9px] font-bold text-gray-400">
-                      (25%)
-                    </small>
-                  </strong>
-                  <span className="font-bold leading-none">1000€</span>
-                </div>
-                <div className="flex justify-between w-full items-start text-xs text-gray-400">
-                  <small className="leading-1">Previsão</small>
-                  <small className="font-bold leading-1">4200€</small>
-                </div>
-              </div>
+              {refunds.length > 0 && (
+                <>
+                  <h3 className="mt-4 mb-2 font-bold text-sm">Reembolso</h3>
+                  {refunds.map((refund) => (
+                    <div key={refund.id} className="w-full pt-2">
+                      <div className="flex justify-between w-full items-start text-xs">
+                        <strong className="leading-none">
+                          {refund.label}{' '}
+                          <small className="text-[9px] font-bold text-gray-400">
+                            ({refund.value}
+                            {refund.type})
+                          </small>
+                        </strong>
+                        <span className="font-bold leading-none">1000€</span>
+                      </div>
+                      <div className="flex justify-between w-full items-start text-xs text-gray-400">
+                        <small className="leading-1">Previsão</small>
+                        <small className="font-bold leading-1">4200€</small>
+                      </div>
+                    </div>
+                  ))}
+                </>
+              )}
             </Card>
           </div>
 
