@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { Cog, Plus } from 'lucide-react'
+import { Cog } from 'lucide-react'
 
 import { Button } from './ui/button'
 import {
@@ -16,12 +15,6 @@ import { Separator } from './ui/separator'
 import { InputSettings } from './InputSettings'
 import { AddInputSettings } from './AddInputSettings'
 import { useSettingsStore } from '../stores/useSettingsStore'
-
-type TypeComponents = {
-  name: string
-  label: string
-  value: number
-}
 
 export function Settings() {
   // eslint-disable-next-line object-curly-newline
