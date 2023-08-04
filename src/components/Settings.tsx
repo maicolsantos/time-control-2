@@ -36,19 +36,20 @@ export function Settings() {
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
-            <InputSettings name="earnPerDay" label="Valor por dia" value={10} />
+            <InputSettings
+              item={{ name: 'earnPerDay', label: 'Valor por dia', value: 10 }}
+            />
             <Separator />
 
             <div className="flex justify-between items-center">
               <DialogDescription>Descontos</DialogDescription>
               <AddInputSettings type="Desconto" onAddSettings={setDiscounts} />
             </div>
-            {discounts.map((discount) => (
+            {discounts?.map((discount) => (
               <InputSettings
                 key={discount.id}
-                name={discount.name}
-                label={discount.label}
-                value={discount.value}
+                type="discounts"
+                item={discount}
               />
             ))}
             <Separator />
@@ -57,13 +58,8 @@ export function Settings() {
               <DialogDescription>Reembolso</DialogDescription>
               <AddInputSettings type="Reembolso" onAddSettings={setRefunds} />
             </div>
-            {refunds.map((refund) => (
-              <InputSettings
-                key={refund.id}
-                name={refund.name}
-                label={refund.label}
-                value={refund.value}
-              />
+            {refunds?.map((refund) => (
+              <InputSettings key={refund.id} type="refunds" item={refund} />
             ))}
           </div>
         </div>

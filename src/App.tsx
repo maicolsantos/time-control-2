@@ -53,7 +53,7 @@ function App() {
                   <small className="font-bold leading-1">4200€</small>
                 </div>
               </div>
-              {discounts.length > 0 && (
+              {discounts?.length > 0 && (
                 <>
                   <h3 className=" mt-4 mb-2 font-bold text-sm">Descontos</h3>
                   {discounts.map((discount) => (
@@ -80,7 +80,7 @@ function App() {
                 </>
               )}
 
-              {refunds.length > 0 && (
+              {refunds?.length > 0 && (
                 <>
                   <h3 className="mt-4 mb-2 font-bold text-sm">Reembolso</h3>
                   {refunds.map((refund) => (
